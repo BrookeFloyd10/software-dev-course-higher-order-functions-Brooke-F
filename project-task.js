@@ -43,8 +43,12 @@ Step-by-Step:
 2. Use the `filter()` method to apply the callback to the array.
 3. Return the filtered result.
 */
+function filterProducts(products, callback) {
+  return products.filter(callback); 
+}
 
-
+const productsInStock = filterProducts(products, (item) => item.inStock);
+// console.log(productsInStock)
 /*
 🔹 Task 2: Transform Product Names
 
@@ -56,6 +60,17 @@ Step-by-Step:
 3. Store the result in a new variable.
 */
 
+
+const ProductsUppercase = products.map((product) => product.name.toUpperCase());
+// console.log("\nUppercase Product Name:", ProductsUppercase);
+// console.log("\nUppercase Product Name:", ProductsUppercase);
+// -------------example of abstraction= ^^^ this is only what we see / write -----------
+
+// const productNamesUppercase = [];
+// for (let i = 0; i < products.length; i++) {
+//   productNamesUppercase.push(products[i].name.toUpperCase());
+// };
+// -------------^^^ this is what is happening behind the scenes with this function ------
 
 /*
 🔹 Task 3: Generate Discounted Prices
@@ -71,6 +86,34 @@ Step-by-Step:
 4. Print the array of products to verify the new property and value have been added to each product object.
 */
 
+// with passing in product
+function applyDiscount(discountPercent) {
+  return function(product){
+    return product.price * (discountPercent / 100)
+  }
+};
+
+const discount10 = applyDiscount(10)
+products.forEach((product) => {
+  product.saleprice = discount10(product)
+});
+// console.log("\nNew Products Array with sale prices: ", products);
+
+
+// with passing in price
+// function applyDiscount(discountPercent) {
+//   return function (price) {
+//     return price - price *(discountPercent / 100);
+//   };
+// };
+// ///////test this to make sre it works
+// const discount10 = applydiscount
+// const discount10 = applyDiscount(10); // 10% discount
+// products.forEach((product) => {
+//   product.salePrice = discount10(product.price); // pass just the price
+// });
+// console.log("\nNew Products Array with Sale Prices: ", products);
+
 
 /*
 🔹 Task 4: Calculate Total Inventory Value
@@ -82,13 +125,25 @@ Step-by-Step:
 2. Add only the prices of products where `inStock` is true.
 3. Store the total in a new variable.
 */
+const totalValue = products
+  .filter((product) => product.inStock)
+  .reduce((total, product) => total + product.price, 0)
 
+  console.log("\nTotal Inventory Value: $", totalValue);
+  
 
 // ============================================
 // 🧪 Console Test Your Work
 // ============================================
 
 // console.log("Filtered products:", ...);
+console.log(productsInStock)
+
 // console.log("Uppercased names:", ...);
+console.log("\nUppercase Product Name:", ProductsUppercase);
+
 // console.log("Discounted products:", ...);
+console.log("\nNew Products Array with sale prices: ", products);
+
 // console.log("Total value in stock:", ...);
+console.log("\nTotal Inventory Value: $", totalValue);
