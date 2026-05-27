@@ -48,7 +48,7 @@ function filterProducts(products, callback) {
 }
 
 const productsInStock = filterProducts(products, (item) => item.inStock);
-// console.log(productsInStock)
+// console.log(productsInStock);
 /*
 🔹 Task 2: Transform Product Names
 
@@ -137,7 +137,7 @@ const totalValue = products
 // ============================================
 
 // console.log("Filtered products:", ...);
-console.log(productsInStock)
+console.log(productsInStock);
 
 // console.log("Uppercased names:", ...);
 console.log("\nUppercase Product Name:", ProductsUppercase);
