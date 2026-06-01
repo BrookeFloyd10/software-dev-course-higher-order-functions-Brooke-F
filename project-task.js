@@ -61,7 +61,7 @@ Step-by-Step:
 */
 
 
-const ProductsUppercase = products.map((product) => product.name.toUpperCase());
+const productsUppercase = products.map((product) => product.name.toUpperCase());
 // console.log("\nUppercase Product Name:", ProductsUppercase);
 // console.log("\nUppercase Product Name:", ProductsUppercase);
 // -------------example of abstraction= ^^^ this is only what we see / write -----------
@@ -137,10 +137,10 @@ const totalValue = products
 // ============================================
 
 // console.log("Filtered products:", ...);
-console.log(productsInStock);
+console.log("Filtered Products: ", productsInStock);
 
 // console.log("Uppercased names:", ...);
-console.log("\nUppercase Product Name:", ProductsUppercase);
+console.log("\nUppercase Product Name:", productsUppercase);
 
 // console.log("Discounted products:", ...);
 console.log("\nNew Products Array with sale prices: ", products);
