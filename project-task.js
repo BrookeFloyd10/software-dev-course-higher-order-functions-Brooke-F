@@ -90,12 +90,12 @@ Step-by-Step:
 function applyDiscount(discountPercent) {
   return function(product){
     return product.price * (discountPercent / 100)
-  }
-};
+  };
+}
 
-const discount10 = applyDiscount(10)
+const discount10 = applyDiscount(10);
 products.forEach((product) => {
-  product.saleprice = discount10(product)
+  product.saleprice = discount10(product);
 });
 // console.log("\nNew Products Array with sale prices: ", products);
 
@@ -127,7 +127,7 @@ Step-by-Step:
 */
 const totalValue = products
   .filter((product) => product.inStock)
-  .reduce((total, product) => total + product.price, 0)
+  .reduce((total, product) => total + product.price, 0);
 
   console.log("\nTotal Inventory Value: $", totalValue);
   
